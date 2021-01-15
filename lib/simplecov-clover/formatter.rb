@@ -29,7 +29,7 @@ module SimpleCov::Formatter
         }
       end
 
-      File.open(File.join(SimpleCov.coverage_path, "coverage.xml"), "w+") do |file|
+      File.open(File.join(SimpleCov.coverage_path, "clover.xml"), "w+") do |file|
         file.puts builder.to_xml
       end
       puts "Clover coverage written at #{File.join(SimpleCov.coverage_path, "clover.xml")}"
@@ -37,7 +37,7 @@ module SimpleCov::Formatter
 
     class SimpleCov::Formatter::RcovFormatter
       def self.output_path
-        File.join(SimpleCov.root, "target/site/clover")
+        File.join(SimpleCov.coverage_path, "target/site/clover")
       end
     end
 
