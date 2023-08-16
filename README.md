@@ -7,7 +7,9 @@ TODO: Write a gem description
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'simplecov-atlassian-bamboo'
+group :test do
+    gem 'simplecov-clover', '~> 0.1', require: false, git: 'https://github.com/wellsterhealthtech/simplecov-clover'
+end
 ```
 
 And then execute:
@@ -16,11 +18,15 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install simplecov-atlassian-bamboo
+    $ gem install simplecov-clover
 
 ## Usage
 
-TODO: Write usage instructions here
+Include the formatter in your `spec_helper.rb` as:
+```ruby
+require 'simplecov-clover'
+SimpleCov.formatter = SimpleCov::Formatter::CloverFormatter
+```
 
 ## Contributing
 
